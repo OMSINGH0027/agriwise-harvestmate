@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -13,7 +12,6 @@ export default function Dashboard() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Simulate data loading
     const timer = setTimeout(() => {
       setIsLoading(false);
       setIsVisible(true);
@@ -23,10 +21,10 @@ export default function Dashboard() {
   }, []);
 
   const insights = [
-    { title: 'Current Temperature', value: '28°C', change: 2.3, type: 'temperature' },
-    { title: 'Rainfall (Monthly)', value: '42mm', change: -15, type: 'rainfall' },
-    { title: 'Wind Speed', value: '12km/h', change: 5, type: 'wind' },
-    { title: 'Humidity', value: '65%', change: 8, type: 'humidity' },
+    { title: 'Current Temperature', value: '28°C', change: 2.3, type: 'temperature' as const },
+    { title: 'Rainfall (Monthly)', value: '42mm', change: -15, type: 'rainfall' as const },
+    { title: 'Wind Speed', value: '12km/h', change: 5, type: 'wind' as const },
+    { title: 'Humidity', value: '65%', change: 8, type: 'humidity' as const },
   ];
 
   const weatherForecast = [
@@ -48,7 +46,6 @@ export default function Dashboard() {
       <Navbar />
       <main className="flex-grow pt-20 pb-12">
         <div className="container-wide">
-          {/* Dashboard Header */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
             <div>
               <h1 className="text-2xl md:text-3xl font-bold">Farm Dashboard</h1>
@@ -71,7 +68,6 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Loading State */}
           {isLoading && (
             <div className="w-full py-24 flex justify-center items-center">
               <div className="flex flex-col items-center gap-3 animate-pulse">
@@ -83,10 +79,8 @@ export default function Dashboard() {
             </div>
           )}
 
-          {/* Dashboard Content */}
           {!isLoading && (
             <div className="space-y-8">
-              {/* Climate Insights */}
               <section className={`transition-all duration-500 ${
                 isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
               }`}>
@@ -110,7 +104,6 @@ export default function Dashboard() {
                 </div>
               </section>
 
-              {/* Weather Forecast */}
               <section className={`transition-all duration-500 delay-100 ${
                 isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
               }`}>
@@ -129,9 +122,7 @@ export default function Dashboard() {
                 </div>
               </section>
 
-              {/* Recommendation and Activity Sections */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* Crop Recommendations */}
                 <section className={`transition-all duration-500 delay-200 ${
                   isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
                 }`}>
@@ -180,7 +171,6 @@ export default function Dashboard() {
                   </Card>
                 </section>
 
-                {/* Upcoming Activities */}
                 <section className={`transition-all duration-500 delay-300 ${
                   isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
                 }`}>
