@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Sprout } from 'lucide-react';
+import LocationBanner from '@/components/ui/location/LocationBanner';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,6 +43,7 @@ export default function Navbar() {
         isScrolled ? 'glass shadow-sm border-b border-border/50' : 'bg-transparent'
       }`}
     >
+      <LocationBanner />
       <div className="container-wide py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
