@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import DataCollection from "./pages/DataCollection";
+import CropRecommendation from "./pages/CropRecommendation";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/data-collection" element={<DataCollection />} />
+          <Route path="/crop-recommendation" element={<CropRecommendation />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
